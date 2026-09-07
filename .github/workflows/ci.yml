@@ -12,5 +12,10 @@ jobs:
       - name: Descargar código
         uses: actions/checkout@v4
 
-      - name: Verificar que el pipeline corre
-        run: echo "Pipeline ejecutado correctamente"
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Ejecutar pruebas automatizadas
+        run: python -m unittest discover -s tests -v
